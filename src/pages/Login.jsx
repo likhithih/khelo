@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../component/Logo";
 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (username && password) {
       localStorage.setItem("name", username);
       localStorage.setItem("password", password);
-      <Link to="/home"> </Link>
+      navigate("/home");
     } else if (!username) {
       alert("Please enter a username.");
     } else {
